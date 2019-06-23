@@ -1,0 +1,66 @@
+'''Euler programming challenges are for people who would like to solve math problems using programming. 
+These are the ones I have solved using Python so far.
+These challenges are a fun way of keep learning better ways of writing code since the moment your code is not efficient enough,
+you computer will not be able to solve the problem in a reasonable time.'''
+
+'''To reach these fun challenges: https://projecteuler.net/about '''
+
+#the sum of all the multiples of 3 or 5 below 1000\n",
+x = 0\n
+for val in range(0,1000):\n
+    if val % 3 == 0 or val % 5 == 0:\n"
+        x = x + val\n"
+        print (x)  
+
+#in the Fibonacci sequence whose values do not exceed four million, the sum of the even-valued terms.
+def F(n):
+    if n == 0:\n
+            return 0
+        elif n == 1:
+            return 1
+        else:
+            return F(n-1) + F(n-2)
+    x = 0
+
+    for n in range(0, 1000):
+        if F(n) <= 4000000:
+            if F(n) % 2 == 0:
+                x = x + F(n)
+        else : break 
+    print(x) 
+    
+#What is the largest prime factor of the number 600851475143 ?
+    
+    def find_primefactor(self):
+        factors = set()
+        for num in range(2, self):
+            if self % num == 0:
+                factors.add(num)
+        removables = set()
+        for factor in factors:
+            for num in range(2, factor):
+                if factor % num == 0:
+                    removables.add(factor)
+                    factors.add(num)
+                    factors.add(factor // num)              
+        for removable in removables:
+            if removable in factors:
+                factors.remove(removable)
+
+        return factors, max(factors)
+    print(find_primefactor(600851475143))    
+    
+    
+#largest palindrome made from the product of two 3-digit numbers
+def pal(self):
+        palinlist = list(str(self))
+        palinlist.reverse()
+        palin = \"\".join(palinlist)
+        return int(palin)
+    findmax =0
+    for x in range(100,1000):
+            for y in range(100, 1000):
+                if x*y == pal(x*y):
+                    if findmax < x*y:
+                        findmax = x*y
+    print(findmax)
